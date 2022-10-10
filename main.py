@@ -30,3 +30,24 @@ resources = {
     "coffee": 100,
 }
 
+def check_resources(selection) :
+    ingredients = MENU[selection]["ingredients"]
+    for i in ingredients:
+        if ingredients[i]  resources[i]:
+            print(f"Sorry there is not enough {i}")
+
+
+
+
+
+turn_off = False
+while not turn_off:
+    choose_drink = input("“What would you like? (espresso/latte/cappuccino):\n").lower()
+    if choose_drink in MENU :
+        check_resources(choose_drink)
+
+    elif  choose_drink == "off" :
+        turn_off = True
+    
+    elif choose_drink == "report":
+        print(resources)
